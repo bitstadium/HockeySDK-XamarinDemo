@@ -56,8 +56,6 @@
   </Target>
   -->
   <ItemGroup>
-    <EmbeddedJar Include="..\NativeJava\bin\Debug\HockeySDK_XamarinDemo.NativeJava.jar">
-      <Link>Jars\HockeySDK_XamarinDemo.NativeJava.jar</Link>
-    </EmbeddedJar>
+    <EmbeddedJar Include="Jars\HockeySDK_XamarinDemo.NativeJava.jar" />
   </ItemGroup>
 </Project>
