@@ -111,7 +111,7 @@ namespace HockeySDKXamarinDemo
 
 			try
 			{
-				new TestHockeyAppException ("This is the second basic exception.");
+				throw new TestHockeyAppException ("This is the second basic exception.");
 			}
 			catch(TestHockeyAppException ex)
 			{
