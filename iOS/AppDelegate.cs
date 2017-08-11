@@ -6,11 +6,8 @@ using Foundation;
 using UIKit;
 using System.Runtime.InteropServices;
 
-#if HOCKEYAPP
-using HockeyApp;
-#elif INSIGHTS
-using Xamarin;
-#endif
+using HockeyApp.iOS;
+
 using System.Threading.Tasks;
 
 namespace HockeySDKXamarinDemo.iOS
@@ -18,7 +15,6 @@ namespace HockeySDKXamarinDemo.iOS
 	[Register("AppDelegate")]
 	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
 	{
-#if HOCKEYAPP
 		const string AppID = "Your-App-ID";
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
@@ -39,25 +35,6 @@ namespace HockeySDKXamarinDemo.iOS
 
 			return base.FinishedLaunching(app, options);
 		}
-#elif INSIGHTS
-		const string AppID = "Your-App-ID";
-
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-		{
-			Insights.Initialize(AppID);
-
-			global::Xamarin.Forms.Forms.Init();
-
-			// Code for starting up the Xamarin Test Cloud Agent
-			#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start();
-			#endif
-
-			LoadApplication(CreateApp());
-
-			return base.FinishedLaunching(app, options);
-		}
-#endif
 
 		private App CreateApp()
 		{
