@@ -22,7 +22,11 @@ namespace HockeySDKXamarinDemo.iOS
 			var manager = BITHockeyManager.SharedHockeyManager;
 			manager.Configure(AppID);
 			manager.DebugLogEnabled = true;
+			manager.LogLevel = BITLogLevel.Verbose;
+			manager.CrashManager.CrashManagerStatus = BITCrashManagerStatus.AutoSend;
+			manager.DisableMetricsManager = true;
 			manager.StartManager();
+			manager.Authenticator.AuthenticateInstallation(); // This line is obsolete in crash only builds
 
 			global::Xamarin.Forms.Forms.Init();
 
