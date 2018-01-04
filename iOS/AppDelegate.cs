@@ -21,7 +21,7 @@ namespace HockeySDKXamarinDemo.iOS
 		{
 			var manager = BITHockeyManager.SharedHockeyManager;
 			manager.Configure(AppID);
-			manager.DebugLogEnabled = true;
+			manager.LogLevel = BITLogLevel.Debug;
 			manager.StartManager();
 
 			global::Xamarin.Forms.Forms.Init();
